@@ -16,8 +16,8 @@ public abstract class AbsQueue implements IQueue{
 
         String qString = "";
 
-        for(int i = 1; i < size() + 1;i++){
-            qString += get(i).toString();
+        for(int i = 1; i < length() + 1;i++){
+            qString += get(i) + " ";
         }
 
         return qString;

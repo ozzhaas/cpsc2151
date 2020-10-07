@@ -12,6 +12,7 @@ public class ArrayQueue extends AbsQueue implements IQueue {
      * @invariants 0 <= depth <= MAX_DEPTH and
      *          [depth = number of Integers in myQ]
      * Correspondence IQueue = myQ
+     *                IQueue.length() = ArrayQueue.length()
      */
 
     // where the data is stored. myQ[0] is the front of the queue
@@ -34,7 +35,7 @@ public class ArrayQueue extends AbsQueue implements IQueue {
      * @post depth = #depth + 1 and x = myQ[depth]
      * @param x The Integer being pushed into the end of the Queue
      */
-    public void add(Integer x){
+    public void enqueue(Integer x){
         myQ[depth] = x;
         depth++;
 
@@ -45,7 +46,7 @@ public class ArrayQueue extends AbsQueue implements IQueue {
      * @post depth = #depth - 1
      * @return Returns the first Integer in the Queue
      */
-    public Integer pop() {
+    public Integer dequeue() {
         Integer x = myQ[0];
 
         for(int i = 0; i < depth;i++){
@@ -60,8 +61,12 @@ public class ArrayQueue extends AbsQueue implements IQueue {
      * @post 0 <= depth <= MAX_DEPTH
      * @return The current amount of Integers in myQ
      */
-    public int size() {
+    public int length() {
         return depth;
     }
+
+
+    public void clear() {depth = 0;}
+
 
 }

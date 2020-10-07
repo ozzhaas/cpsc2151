@@ -1,7 +1,7 @@
 /* Kellen Haas
    CPSC 2150
    Lab5
-   9/23/20
+   10/02/20
  */
 
 package cpsc2150.MyQueue;
@@ -13,25 +13,33 @@ import java.io.*;
 public class QueueApp {
 
     public static void main(String[] args) {
-        IQueue q;
+        IQueue<Integer> q;
 
         //Initializing Queue through user input
         Scanner scan = new Scanner(System.in);
-        System.out.println("What kind of implementation would you like?");
-        System.out.println("Enter 1 for Array implementation or 2 for List implementation:\n");
+        System.out.println("Please enter a number for the kind of implementation you would like:");
+        System.out.println("1. ArrayQueue\n2. ListQueue");
         String in = scan.nextLine();
+        int typeOfQ = Integer.parseInt(in);
 
-        if (in.equals("1")){
-            q = new ArrayQueue();
+        //error checking Queue decision
+        while(typeOfQ != 1 && typeOfQ != 2){
+            System.out.println("Please enter a number for the kind of implementation you would like:");
+            System.out.println("1. ArrayQueue\n2. ListQueue");
+            in = scan.nextLine();
+            typeOfQ = Integer.parseInt(in);
         }
-        else {
-            q = new ListQueue();
-        }
+
+        //Initialization type of Queue
+        if (typeOfQ == 1)
+            q = new ArrayQueue<Integer>();
+        else
+            q = new ListQueue<Integer>();
 
         //menu
         String menuSelec = "10";
         while(!menuSelec.equals("8")){
-            System.out.println("\nSelect an option:\n");
+            System.out.println("Select and option:\n");
             System.out.println("\t1. Add to the Queue\n\t2. Get next number from the Queue\n\t" +
                     "3. Peek at the front of the Queue\n\t4. Peek at the end of the Queue\n\t5. Insert in the Queue\n\t" +
                     "6. Get a position in the Queue\n\t7. Remove from a position in the Queue\n\t8. Quit\n");
@@ -39,11 +47,12 @@ public class QueueApp {
             menuSelec = scan.nextLine();
             switch (menuSelec) {
                 case "1":
-                    System.out.println("\nWhat number would you like to add to the Queue?");
+                    System.out.println("What number would you like to add to the Queue?");
                     String temp = scan.nextLine();
                     Integer numToAdd = Integer.parseInt(temp);
                     q.enqueue(numToAdd);
-                    System.out.println("\n");
+
+                    printQ(q);
                     break;
 
                 case "2":
@@ -51,7 +60,8 @@ public class QueueApp {
                         break;
 
                     System.out.println("Next number is: " + q.dequeue());
-                    System.out.println("\n");
+
+                    printQ(q);
                     break;
 
                 case "3":
@@ -60,7 +70,8 @@ public class QueueApp {
 
                     Integer frontNum = q.peek();
                     System.out.println("Peek: " + frontNum);
-                    System.out.println("\n");
+
+                    printQ(q);
                     break;
 
                 case "4":
@@ -69,7 +80,8 @@ public class QueueApp {
 
                     Integer endNum = q.endOfQueue();
                     System.out.println("Peek at the end:" + endNum);
-                    System.out.println("\n");
+
+                    printQ(q);
                     break;
 
                 case "5":
@@ -90,7 +102,8 @@ public class QueueApp {
 
 
                     q.insert(insNum, insPos);
-                    System.out.println("\n");
+
+                    printQ(q);
                     break;
 
                 case "6":
@@ -110,7 +123,8 @@ public class QueueApp {
 
                     Integer nextNum = q.get(pos);
                     System.out.println(nextNum + " is at position " + pos + " in the Queue.\n");
-                    System.out.println("\n");
+
+                    printQ(q);
                     break;
 
                 case "7":
@@ -121,7 +135,7 @@ public class QueueApp {
                     String tempRemPos = scan.nextLine();
                     Integer remPos = Integer.parseInt(tempRemPos);
 
-                    while ((remPos < 1) || (remPos > (q.length()))) {
+                    while ((remPos < 1) || (remPos > (q.length()+1))) {
                         System.out.println("Not a valid position in the Queue!\n");
                         System.out.println("What position would you like to remove from the Queue?\n");
                         tempRemPos = scan.nextLine();
@@ -130,7 +144,8 @@ public class QueueApp {
 
                     Integer removed = q.remove(remPos);
                     System.out.println(removed + " was at position " + remPos + " in the Queue.\n");
-                    System.out.println("\n");
+
+                    printQ(q);
                     break;
 
                 case "8":
@@ -140,16 +155,32 @@ public class QueueApp {
                 default:
                     System.out.println("\nYou must enter a number 1-8.\n");
             }
-            System.out.println("Queue is: ");
-            System.out.print(q);
         }
     }
 
-
-    static private boolean isEmpty(IQueue myQ){
-        if(myQ.length() == 0){
+    static private void printQ(IQueue<Integer> printer) {
+        if(printer.length() == 0) {
             System.out.println("Queue is empty!");
-            System.out.println(myQ);
+            System.out.println("Queue is: ");
+        }
+        else {
+            System.out.println("Queue is: ");
+
+            Integer holder = printer.get(1);
+            System.out.print(holder);
+
+            for (int k = 2; k <= printer.length(); k++) {
+                holder = printer.get(k);
+                System.out.print(", " + holder);
+            }
+            System.out.print("\n");
+        }
+    }
+
+    static private boolean isEmpty(IQueue<Integer> myQ){
+        if(myQ.length() == 0) {
+            System.out.println("Queue is empty!");
+            System.out.println("Queue is: ");
             return true;
         }
         else

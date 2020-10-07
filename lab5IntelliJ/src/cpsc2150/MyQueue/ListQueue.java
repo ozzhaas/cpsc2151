@@ -9,12 +9,13 @@ package cpsc2150.MyQueue;
 
 import java.util.*;
 
-public class ListQueue  extends AbsQueue implements IQueue{
+public class ListQueue extends AbsQueue implements IQueue{
 
     /**
      * @invariants 0 <= depth <= MAX_DEPTH and
      * [depth = number of Integers in myQ]
      * Correspondence IQueue = myQ
+     *                IQueue.length() = ListQueue.length()
      */
 
     //this time store the queue in a list
@@ -33,7 +34,7 @@ public class ListQueue  extends AbsQueue implements IQueue{
      * @post myQ.size() = #myQ.size() + 1 and x = myQ[myQ.size()]
      * @param x The Integer being pushed into the end of the Queue
      */
-    public void add(Integer x){
+    public void enqueue(Integer x){
         myQ.add(x);
     }
 
@@ -42,7 +43,7 @@ public class ListQueue  extends AbsQueue implements IQueue{
      * @post myQ.size() = #myQ.size() - 1
      * @return Returns the first Integer in the Queue
      */
-    public Integer pop() {
+    public Integer dequeue() {
         Integer x = myQ.get(0);
 
         myQ.remove(0);
@@ -53,8 +54,20 @@ public class ListQueue  extends AbsQueue implements IQueue{
      * @post 0 <= myQ.size() <= MAX_DEPTH
      * @return The current amount of Integers in myQ
      */
-    public int size() {
+    public int length() {
         return myQ.size();
+    }
+
+
+
+
+    public void clear() {
+        for (int i = 0; i < length(); i++) {
+            if (myQ.get(0) == null) {
+                return;
+            }
+            myQ.remove(i);
+        }
     }
 }
 

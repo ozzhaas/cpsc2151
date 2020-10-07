@@ -1,7 +1,7 @@
 /* Kellen Haas
    CPSC 2150
    Lab5
-   9/23/20
+   10/02/20
  */
 
 package cpsc2150.MyQueue;
@@ -10,10 +10,10 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-public class QueueApp {
+public class DoubleQueueApp {
 
     public static void main(String[] args) {
-        IQueue q;
+        IQueue<Double> q;
 
         //Initializing Queue through user input
         Scanner scan = new Scanner(System.in);
@@ -22,10 +22,10 @@ public class QueueApp {
         String in = scan.nextLine();
 
         if (in.equals("1")){
-            q = new ArrayQueue();
+            q = new ArrayQueue<>();
         }
         else {
-            q = new ListQueue();
+            q = new ListQueue<>();
         }
 
         //menu
@@ -41,7 +41,7 @@ public class QueueApp {
                 case "1":
                     System.out.println("\nWhat number would you like to add to the Queue?");
                     String temp = scan.nextLine();
-                    Integer numToAdd = Integer.parseInt(temp);
+                    Double numToAdd = Double.parseDouble(temp);
                     q.enqueue(numToAdd);
                     System.out.println("\n");
                     break;
@@ -58,7 +58,7 @@ public class QueueApp {
                     if(isEmpty(q))
                         break;
 
-                    Integer frontNum = q.peek();
+                    Double frontNum = q.peek();
                     System.out.println("Peek: " + frontNum);
                     System.out.println("\n");
                     break;
@@ -67,7 +67,7 @@ public class QueueApp {
                     if(isEmpty(q))
                         break;
 
-                    Integer endNum = q.endOfQueue();
+                    Double endNum = q.endOfQueue();
                     System.out.println("Peek at the end:" + endNum);
                     System.out.println("\n");
                     break;
@@ -75,7 +75,7 @@ public class QueueApp {
                 case "5":
                     System.out.println("What number do you want to add to the Queue?\n");
                     String tempInsNum = scan.nextLine();
-                    Integer insNum = Integer.parseInt(tempInsNum);
+                    Double insNum = Double.parseDouble(tempInsNum);
 
                     System.out.println("What position do you want to insert it in?\n");
                     String tempInsPos = scan.nextLine();
@@ -108,7 +108,7 @@ public class QueueApp {
                         pos = Integer.parseInt(getPos);
                     }
 
-                    Integer nextNum = q.get(pos);
+                    Double nextNum = q.get(pos);
                     System.out.println(nextNum + " is at position " + pos + " in the Queue.\n");
                     System.out.println("\n");
                     break;
@@ -128,14 +128,14 @@ public class QueueApp {
                         remPos = Integer.parseInt(tempRemPos);
                     }
 
-                    Integer removed = q.remove(remPos);
+                    Double removed = q.remove(remPos);
                     System.out.println(removed + " was at position " + remPos + " in the Queue.\n");
                     System.out.println("\n");
                     break;
 
                 case "8":
                     System.out.println("Exiting menu.");
-                    break;
+                    return;
 
                 default:
                     System.out.println("\nYou must enter a number 1-8.\n");
@@ -146,7 +146,7 @@ public class QueueApp {
     }
 
 
-    static private boolean isEmpty(IQueue myQ){
+    static private boolean isEmpty(IQueue<Double> myQ){
         if(myQ.length() == 0){
             System.out.println("Queue is empty!");
             System.out.println(myQ);
