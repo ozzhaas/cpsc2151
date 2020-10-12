@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mkhaas-lab7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mkhaas-lab7.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
