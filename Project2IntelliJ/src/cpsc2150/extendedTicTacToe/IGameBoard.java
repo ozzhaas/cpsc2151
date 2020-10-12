@@ -1,26 +1,27 @@
+/* Kellen Haas
+   CPSC 2150
+   Project 2
+   10/11/20
+ */
+
 package cpsc2150.extendedTicTacToe;
 
 import java.util.Objects;
 
 /**
- * This object will hold the information about a mortgage, and will handle all calculations for interest rate and monthly payments
- * @Defines: Payment: R - The monthly payment on the mortgage
- *          Rate: R - the interest rate per monthly period on the loan
- *          Customer: - Every loan must have an associated customer
- *          DebtToIncomeRatio: R - The ratio of the Customer's total monthly debt payments (including mortgage) to their monthly income
- *          Principal: R - The amount of the loan
- *          NumberOfPayments: Z - total number of payments the customer will make on the loan
- *          PercentDown : R - The percent of the house cost covered by the down payment
+ * IGameboard Object is a 2D gameboard that contains markers for the players who are playing the game of TicTacToe.
+ * The current markers are only X and O. Markers cannot be placed on top of other markers (aka in a position already
+ * taken) and they cannot be placed out of the bounds of the game board which is currently an 8x8 grid. In the future
+ * the size of the board may change in which case its size would be the number of rows * the number of columns.
  *
- * @Initialization Ensures: [Rate is calculated based on the BASERATE, the years for the loan, and the PercentDown]
- *                          [Payment is calculated]
+ * @Defines: numRows: Z - the number of rows in the game board
+ *           numCols: Z - the number of columns in the game board
  *
- * @Constraints: Payment = (Rate * Principal) / (1-(1+Rate)^ -NumberOfPayments)
- *               0 <= Rate <= 1
- *               0 < DebtToIncomeRatio
- *               MIN_YEARS * 12 <= NumberOfPayments <= MAX_YEARS * 12
- *               0 < Principal
- *               0 <= PercentDown < 1
+ * @Initialization Ensures: [The game board does not have any markers as all spaces are initialized to ' ']
+ *
+ * @Constraints: number of rows > 0 and < 100
+ *               number of columns > 0 and < 100
+ *               number of markers in-a-row to win must be >= 2 and < MAX_LEN
  */
 
 public interface IGameBoard {
@@ -54,6 +55,7 @@ public interface IGameBoard {
 
     /**
      * @param marker = [position to place the character player on the game board]
+     * @param player = [the character for the current player]
      * @pre [The position passed in as marker must be valid and if it is not, then this
      *      function shouldn't be called]
      * @return void
@@ -295,9 +297,18 @@ public interface IGameBoard {
 
 
 
-
+    /**
+     * @param pos = the position on the board
+     * @pre [the board has been created and initialized]
+     * @post [returns what is in that position on the board]
+     */
     public char whatsAtPos(BoardPosition pos);
 
+    /**
+     * @param pos = the position on the board
+     * @param player = [the character that represents the player to search for]
+     * @post [return true if the player is found and false otherwise]
+     */
     default boolean isPlayerAtPos(BoardPosition pos, char player) {
         if (whatsAtPos(pos) == player) {
             System.out.println("Matching players! Player 1: " + whatsAtPos(pos) + ", Player 2: " + player);
@@ -308,10 +319,22 @@ public interface IGameBoard {
         }
     }
 
+    /**
+     * @post [the number of rows in the board]
+     * @return int numRows
+     */
     public int getNumRows();
 
+    /**
+     * @post [the number of columns in the board]
+     * @return int numColumns
+     */
     public int getNumColumns();
 
+    /**
+     * @post [the number of characters in-a-row to win]
+     * @return int numToWin
+     */
     public int getNumToWin();
 
 }

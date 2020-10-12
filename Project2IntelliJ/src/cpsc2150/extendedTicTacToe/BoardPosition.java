@@ -1,11 +1,8 @@
-/*
-  Kellen Haas
-  CPSC 2150
-  Project 1
-  9/20/20
+/* Kellen Haas
+   CPSC 2150
+   Project 2
+   10/11/20
  */
-
-
 
 package cpsc2150.extendedTicTacToe;
 

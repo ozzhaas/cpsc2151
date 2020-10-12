@@ -1,11 +1,15 @@
+/* Kellen Haas
+   CPSC 2150
+   Project 2
+   10/11/20
+ */
+
 package cpsc2150.extendedTicTacToe;
 
 
 public abstract class AbsGameBoard implements cpsc2150.extendedTicTacToe.IGameBoard {
 
     /**
-     * @pre [The game board is empty at the start of the game] and [The game board has
-     *      valid positions on it if the game has started or finished]
      * @return [The String array of the Row and Column positions making the game board]
      *         [printed during the game]
      * @post [The string is formatted to return to GameScreen and print to the terminal]

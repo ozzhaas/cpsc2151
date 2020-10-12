@@ -1,3 +1,9 @@
+/* Kellen Haas
+   CPSC 2150
+   Project 2
+   10/11/20
+ */
+
 package cpsc2150.extendedTicTacToe;
 
 import java.util.Objects;
@@ -7,11 +13,14 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
     private int numRows;
     private int numCols;
     private int numToWin;
-    private int count = 0;
+    private int count;
 
 
     /**
-     * @post [a game board is created and is empty and ready for the users to play]
+     * @pre rows and cols > 0 and < 100
+     * @post numRows = rows and numCols = cols
+     * and numToWin = wins and count = count
+     * @post ticTacBoard = new char[rows][cols] initialized to ' '
      */
 
     public GameBoard(int rows, int cols, int win) {
@@ -19,6 +28,7 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
         this.numRows = rows;
         this.numCols = cols;
         this.numToWin = win;
+        this.count = 0;
         ticTacBoard = new char [rows][cols];
         //Initialize all positions on the board to blank space//
         for (int i = 0; i < rows; i++) {
