@@ -6,8 +6,9 @@
 
 package cpsc2150.MyQueue;
 
-import java.lang.*;
-import java.util.NoSuchElementException;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 
 import static junit.framework.Assert.*;
 import org.junit.Test;
