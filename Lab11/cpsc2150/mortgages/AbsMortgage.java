@@ -1,7 +1,7 @@
 /*Kellen Haas
   CPSC 2150
-  lab7
-  10/07/20
+  Lab11
+  11/13/20
  */
 
 package cpsc2150.mortgages;
