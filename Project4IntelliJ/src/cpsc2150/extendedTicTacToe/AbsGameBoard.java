@@ -19,7 +19,7 @@ public abstract class AbsGameBoard implements cpsc2150.extendedTicTacToe.IGameBo
         //Label the column indexes
         for (int i = 0; i < strCol; i++) {
             if (i == 0) {
-                gameBoardStr = gameBoardStr + "\t  " + i + " " + '|';
+                gameBoardStr = gameBoardStr + "\t ?" + i + " " + '|';
             }
             else if (i < 10) {
                 gameBoardStr = gameBoardStr + " " + i + " " + '|';
