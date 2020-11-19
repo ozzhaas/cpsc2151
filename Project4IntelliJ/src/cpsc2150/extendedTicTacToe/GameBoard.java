@@ -52,7 +52,6 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
         //and should not be called if the space is not available.
         ticTacBoard[marker.getRow()][marker.getColumn()] = player;
         count++;
-        System.out.println("Count in placeMarker: " + count);
     }
 
 
@@ -69,6 +68,7 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
         }
     }
 
+    //Should override this function for efficiency
     @Override
     public boolean isPlayerAtPos(BoardPosition pos, char player) {
         if (whatsAtPos(pos) == player) {

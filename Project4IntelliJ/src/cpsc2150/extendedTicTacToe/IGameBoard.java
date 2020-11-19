@@ -91,7 +91,6 @@ public interface IGameBoard {
         //this function will check to see if the game has resulted in a tie.
         //A game is tied if there are no free board positions remaining.
         //It will return true if the game is tied, and false otherwise.
-        System.out.println("Count = " + count);
         if (count == getNumColumns() * getNumRows() && !checkForWinner(lastPos)) {
             return true;
         }
@@ -289,8 +288,11 @@ public interface IGameBoard {
     }
 
 
-
-
+    /**
+     * @pre
+     * @param pos
+     * @
+     */
     public char whatsAtPos(BoardPosition pos);
 
     default boolean isPlayerAtPos(BoardPosition pos, char player) {

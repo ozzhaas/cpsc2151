@@ -67,16 +67,18 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
             return false;
         }
     }
-//
-//    @Override
-//    public boolean isPlayerAtPos(BoardPosition pos, char player) {
-//        if (ticTacMap.containsKey(player)) {
-//            return true;
-//
-//        } else {
-//            return false;
-//        }
-//    }
+
+    //Should override this function for efficiency
+    @Override
+    public boolean isPlayerAtPos(BoardPosition pos, char player) {
+        if (ticTacMap.containsKey(player)) {
+            List<BoardPosition> tempList = ticTacMap.get(player);
+            if (tempList.contains(pos)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     public char whatsAtPos(BoardPosition pos) {
