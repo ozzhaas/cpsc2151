@@ -12,7 +12,7 @@ public abstract class AbsGameBoard implements cpsc2150.extendedTicTacToe.IGameBo
      */
     @Override
     public String toString() {
-        String gameBoardStr = " ";
+        String gameBoardStr = "";
         int strRow = getNumRows();
         int strCol = getNumColumns();
 
