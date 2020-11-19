@@ -61,7 +61,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.TestGameBoardMem">
+  <component name="RunManager" selected="JUnit.TestGameBoardApp">
     <configuration name="GameScreenApp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="cpsc2150.extendedTicTacToe.GameScreen" />
       <module name="Project4IntelliJ" />
@@ -69,13 +69,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -121,7 +123,8 @@
       <workItem from="1605644386106" duration="20917000" />
       <workItem from="1605671674100" duration="6765000" />
       <workItem from="1605733743398" duration="7518000" />
-      <workItem from="1605749803270" duration="4139000" />
+      <workItem from="1605749803270" duration="4794000" />
+      <workItem from="1605765507796" duration="7956000" />
     </task>
     <servers />
   </component>
@@ -161,22 +164,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="182" height="438" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1605677986904" />
-    <state width="1493" height="111" key="GridCell.Tab.0.bottom" timestamp="1605762129106">
+    <state width="1493" height="296" key="GridCell.Tab.0.bottom" timestamp="1605774722185">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="111" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605762129106" />
-    <state width="1493" height="111" key="GridCell.Tab.0.center" timestamp="1605762129106">
+    <state width="1493" height="296" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605774722185" />
+    <state width="1493" height="296" key="GridCell.Tab.0.center" timestamp="1605774722185">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="111" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605762129106" />
-    <state width="1493" height="111" key="GridCell.Tab.0.left" timestamp="1605762129105">
+    <state width="1493" height="296" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605774722185" />
+    <state width="1493" height="296" key="GridCell.Tab.0.left" timestamp="1605774722185">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="111" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605762129105" />
-    <state width="1493" height="111" key="GridCell.Tab.0.right" timestamp="1605762129106">
+    <state width="1493" height="296" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605774722185" />
+    <state width="1493" height="296" key="GridCell.Tab.0.right" timestamp="1605774722185">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="111" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605762129106" />
+    <state width="1493" height="296" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605774722185" />
     <state width="721" height="221" key="GridCell.Tab.1.bottom" timestamp="1605682245294">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

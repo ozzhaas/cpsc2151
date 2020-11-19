@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class TestGameBoardMem {
 
     private IGameBoard GameBoardFactory(int row, int col, int win) {
-        return new GameBoard(row, col, win);
+        return new GameBoardMem(row, col, win);
     }
 
     private String arrayToString(char arr[][]) {
@@ -251,7 +251,7 @@ public class TestGameBoardMem {
     }
 
     @Test
-    public void Test_isPlayerAtPos_False_Row() {
+    public void Test_isPlayerAtPos_with_Wrong_Player_in_Pos() {
         IGameBoard gb = GameBoardFactory(3, 3, 3);
         gb.placeMarker(new BoardPosition(0, 0), 'A');
         gb.placeMarker(new BoardPosition(0, 1), 'B');
@@ -338,7 +338,7 @@ public class TestGameBoardMem {
 
     //Test Diagonal Win
     @Test
-    public void Test_Diagonal_Win_Bottom_Right() {
+    public void Test_Diagonal_Win_Start_at_Bottom_Right() {
         IGameBoard gb = GameBoardFactory(3, 3, 3);
         gb.placeMarker(new BoardPosition(0,0), 'X');
         gb.placeMarker(new BoardPosition(0,1), 'O');
@@ -354,7 +354,7 @@ public class TestGameBoardMem {
     }
 
     @Test
-    public void Test_Diagonal_Win_Top_Right() {
+    public void Test_Diagonal_Win_Start_at_Top_Right() {
         IGameBoard gb = GameBoardFactory(3, 3, 3);
         gb.placeMarker(new BoardPosition(0,2), 'X');
         gb.placeMarker(new BoardPosition(1,1), 'X');
@@ -364,7 +364,7 @@ public class TestGameBoardMem {
     }
 
     @Test
-    public void Test_Diagonal_Win_Bottom_Left() {
+    public void Test_Diagonal_Win_Start_at_Bottom_Left() {
         IGameBoard gb = GameBoardFactory(3, 3, 3);
         gb.placeMarker(new BoardPosition(2,0), 'X');
         gb.placeMarker(new BoardPosition(1,1), 'X');
@@ -374,7 +374,7 @@ public class TestGameBoardMem {
     }
 
     @Test
-    public void Test_Diagonal_Win_Top_Left() {
+    public void Test_Diagonal_Win_Start_at_Top_Left() {
         IGameBoard gb = GameBoardFactory(3, 3, 3);
         gb.placeMarker(new BoardPosition(0,0), 'X');
         gb.placeMarker(new BoardPosition(1,1), 'X');
@@ -384,11 +384,13 @@ public class TestGameBoardMem {
     }
 
     @Test
-    public void Test_Diagonal_Win_Middle_Of_Larger_Board() {
-        IGameBoard gb = GameBoardFactory(8, 8, 3);
-        gb.placeMarker(new BoardPosition(0, 5), 'X');
-        gb.placeMarker(new BoardPosition(1,6), 'X');
-        BoardPosition testPos = new BoardPosition(2, 7);
+    public void Test_Diagonal_Win_Middle_of_Larger_Board() {
+        IGameBoard gb = GameBoardFactory(8, 8, 5);
+        gb.placeMarker(new BoardPosition(1, 2), 'X');
+        gb.placeMarker(new BoardPosition(2,3), 'X');
+        gb.placeMarker(new BoardPosition(3,4), 'X');
+        gb.placeMarker(new BoardPosition(4,5), 'X');
+        BoardPosition testPos = new BoardPosition(5, 6);
         gb.placeMarker(testPos, 'X');
         assertTrue(gb.checkDiagonalWin(testPos));
     }
@@ -432,40 +434,40 @@ public class TestGameBoardMem {
 
     @Test
     public void Test_CheckVerticalWin_Far_Right_Col_One_Short() {
-        IGameBoard gb = GameBoardFactory(20, 20, 5);
-        gb.placeMarker(new BoardPosition(0, 19), 'X');
-        gb.placeMarker(new BoardPosition(1, 19), 'X');
-        gb.placeMarker(new BoardPosition(2, 19), 'X');
-        gb.placeMarker(new BoardPosition(3, 19), 'X');
-        BoardPosition testPos = new BoardPosition(4, 19);
+        IGameBoard gb = GameBoardFactory(10, 10, 5);
+        gb.placeMarker(new BoardPosition(0, 9), 'X');
+        gb.placeMarker(new BoardPosition(1, 9), 'X');
+        gb.placeMarker(new BoardPosition(2, 9), 'X');
+        gb.placeMarker(new BoardPosition(3, 9), 'X');
+        BoardPosition testPos = new BoardPosition(4, 9);
         gb.placeMarker(testPos, 'O');
         assertFalse(gb.checkVerticalWin(testPos));
     }
 
     @Test
     public void Test_CheckVerticalWin_Middle_Column_Five_In_a_Row() {
-        IGameBoard gb = GameBoardFactory(20, 20, 5);
-        gb.placeMarker(new BoardPosition(0, 10), 'X');
+        IGameBoard gb = GameBoardFactory(10, 10, 5);
+        gb.placeMarker(new BoardPosition(0, 5), 'X');
         gb.placeMarker(new BoardPosition(0, 0), 'O');
-        gb.placeMarker(new BoardPosition(1, 10), 'X');
+        gb.placeMarker(new BoardPosition(1, 5), 'X');
         gb.placeMarker(new BoardPosition(1, 1), 'O');
-        gb.placeMarker(new BoardPosition(2, 10), 'X');
+        gb.placeMarker(new BoardPosition(2, 5), 'X');
         gb.placeMarker(new BoardPosition(3, 4), 'O');
-        gb.placeMarker(new BoardPosition(3, 10), 'X');
-        gb.placeMarker(new BoardPosition(4, 5), 'O');
-        BoardPosition testPos = new BoardPosition(4, 10);
+        gb.placeMarker(new BoardPosition(3, 5), 'X');
+        gb.placeMarker(new BoardPosition(2, 7), 'O');
+        BoardPosition testPos = new BoardPosition(4, 5);
         gb.placeMarker(testPos, 'X');
         assertTrue(gb.checkVerticalWin(testPos));
     }
 
     @Test
     public void Test_CheckVerticalWin_Two_In_a_Row_Separated_by_One() {
-        IGameBoard gb = GameBoardFactory(20, 20, 5);
-        gb.placeMarker(new BoardPosition(0, 10), 'X');
-        gb.placeMarker(new BoardPosition(1, 10), 'X');
-        gb.placeMarker(new BoardPosition(2, 10), 'O');
-        gb.placeMarker(new BoardPosition(3, 10), 'X');
-        BoardPosition testPos = new BoardPosition(4, 10);
+        IGameBoard gb = GameBoardFactory(10, 10, 5);
+        gb.placeMarker(new BoardPosition(0, 8), 'X');
+        gb.placeMarker(new BoardPosition(1, 8), 'X');
+        gb.placeMarker(new BoardPosition(2, 8), 'O');
+        gb.placeMarker(new BoardPosition(3, 8), 'X');
+        BoardPosition testPos = new BoardPosition(4, 8);
         gb.placeMarker(testPos, 'X');
         assertFalse(gb.checkVerticalWin(testPos));
     }
@@ -489,44 +491,43 @@ public class TestGameBoardMem {
 
     @Test
     public void Test_CheckHorizontalWin_Bottom_Row_One_Short() {
-        IGameBoard gb = GameBoardFactory(20, 20, 5);
-        gb.placeMarker(new BoardPosition(19, 0), 'X');
+        IGameBoard gb = GameBoardFactory(10, 10, 5);
+        gb.placeMarker(new BoardPosition(9, 0), 'X');
         gb.placeMarker(new BoardPosition(2, 2), 'O');
-        gb.placeMarker(new BoardPosition(19, 1), 'X');
+        gb.placeMarker(new BoardPosition(9, 1), 'X');
         gb.placeMarker(new BoardPosition(2,4), 'O');
-        gb.placeMarker(new BoardPosition(19, 2), 'X');
+        gb.placeMarker(new BoardPosition(9, 2), 'X');
         gb.placeMarker(new BoardPosition(7, 7), 'O');
-        gb.placeMarker(new BoardPosition(19, 3), 'X');
-        gb.placeMarker(new BoardPosition(9, 5), 'O');
-        BoardPosition testPos = new BoardPosition(19, 4);
+        gb.placeMarker(new BoardPosition(9, 3), 'X');
+        BoardPosition testPos = new BoardPosition(9, 4);
         gb.placeMarker(testPos, 'O');
         assertFalse(gb.checkHorizontalWin(testPos));
     }
 
     @Test
     public void Test_CheckHorizontalWin_Middle_5_in_a_Row() {
-        IGameBoard gb = GameBoardFactory(20, 20, 5);
-        gb.placeMarker(new BoardPosition(10, 10), 'X');
-        gb.placeMarker(new BoardPosition(0, 0), 'O');
-        gb.placeMarker(new BoardPosition(10, 9), 'X');
-        gb.placeMarker(new BoardPosition(2,4), 'O');
-        gb.placeMarker(new BoardPosition(10, 8), 'X');
+        IGameBoard gb = GameBoardFactory(10, 10, 5);
+        gb.placeMarker(new BoardPosition(4, 3), 'X');
+        gb.placeMarker(new BoardPosition(4, 2), 'O');
+        gb.placeMarker(new BoardPosition(4, 4), 'X');
+        gb.placeMarker(new BoardPosition(5, 7), 'O');
+        gb.placeMarker(new BoardPosition(4, 5), 'X');
         gb.placeMarker(new BoardPosition(7, 7), 'O');
-        gb.placeMarker(new BoardPosition(10, 11), 'X');
+        gb.placeMarker(new BoardPosition(4, 6), 'X');
         gb.placeMarker(new BoardPosition(9, 5), 'O');
-        BoardPosition testPos = new BoardPosition(10, 12);
+        BoardPosition testPos = new BoardPosition(4, 7);
         gb.placeMarker(testPos, 'X');
         assertTrue(gb.checkHorizontalWin(testPos));
     }
 
     @Test
-    public void Test_CheckHorizontalWin_Two_In_a_Row_Separated() {
-        IGameBoard gb = GameBoardFactory(20, 20, 5);
-        gb.placeMarker(new BoardPosition(10, 0), 'X');
-        gb.placeMarker(new BoardPosition(10, 1), 'X');
-        gb.placeMarker(new BoardPosition(10, 2), 'O');
-        gb.placeMarker(new BoardPosition(10, 3), 'X');
-        BoardPosition testPos = new BoardPosition(10, 4);
+    public void Test_CheckHorizontalWin_Two_In_a_Row_Separated_by_One() {
+        IGameBoard gb = GameBoardFactory(10, 10, 5);
+        gb.placeMarker(new BoardPosition(5, 0), 'X');
+        gb.placeMarker(new BoardPosition(5, 1), 'X');
+        gb.placeMarker(new BoardPosition(5, 2), 'O');
+        gb.placeMarker(new BoardPosition(5, 3), 'X');
+        BoardPosition testPos = new BoardPosition(5, 4);
         gb.placeMarker(testPos, 'X');
         assertFalse(gb.checkHorizontalWin(testPos));
     }
