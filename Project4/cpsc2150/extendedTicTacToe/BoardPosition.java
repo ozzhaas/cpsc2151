@@ -15,7 +15,6 @@ package cpsc2150.extendedTicTacToe;
 public class BoardPosition {
     private int Row;
     private int Column;
-    private char Player;
 
 
     /**
@@ -54,24 +53,11 @@ public class BoardPosition {
      */
     @Override
     public boolean equals(Object pos) {
-        if (pos instanceof BoardPosition) {
-            BoardPosition b = (BoardPosition) pos;
-            return this.getPlayer()==(b.getPlayer()) && this.getRow() == b.getRow() && this.getColumn() == b.getColumn();
-        } else {
-            return false;
+        BoardPosition tempPos = (BoardPosition) pos;
+        if ((this.Row == tempPos.Row) && (this.Column == tempPos.Column)) {
+            return true;
         }
+        return false;
     }
 
-
-    /**
-     * @pre [The position is checked for validity]
-     * @pre [Both the row and column are passed into checkSpace to ensure validity]
-     * @return [The String array of a position (aka a Row and Column pair)]
-     * @post [Formats a pair of valid coordinates as a string]
-     */
-    @Override
-    public String toString() {return "(" + Row + ", " + Column + ")";}
-
-
-    public char getPlayer() {return Player;}
 }
