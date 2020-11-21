@@ -50,6 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab11/cpsc2150/mortgages/MortgageController.java" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -65,19 +66,6 @@
     <configuration name="GameScreenApp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="cpsc2150.extendedTicTacToe.GameScreen" />
       <module name="Project4IntelliJ" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,6 +113,8 @@
       <workItem from="1605733743398" duration="7518000" />
       <workItem from="1605749803270" duration="4794000" />
       <workItem from="1605765507796" duration="8568000" />
+      <workItem from="1605906573984" duration="297000" />
+      <workItem from="1605918542298" duration="3000" />
     </task>
     <servers />
   </component>
@@ -164,22 +154,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="182" height="438" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1605677986904" />
-    <state width="1493" height="522" key="GridCell.Tab.0.bottom" timestamp="1605775297944">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1605906600185">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="522" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605775297944" />
-    <state width="1493" height="522" key="GridCell.Tab.0.center" timestamp="1605775297944">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605906600185" />
+    <state width="1493" height="142" key="GridCell.Tab.0.bottom" timestamp="1605775841748">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="522" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605775297944" />
-    <state width="1493" height="522" key="GridCell.Tab.0.left" timestamp="1605775297944">
+    <state width="1493" height="142" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605775841748" />
+    <state width="1493" height="142" key="GridCell.Tab.0.center" timestamp="1605775841748">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="522" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605775297944" />
-    <state width="1493" height="522" key="GridCell.Tab.0.right" timestamp="1605775297944">
+    <state width="1493" height="142" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605775841748" />
+    <state width="1493" height="142" key="GridCell.Tab.0.left" timestamp="1605775841747">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="522" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605775297944" />
+    <state width="1493" height="142" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605775841747" />
+    <state width="1493" height="142" key="GridCell.Tab.0.right" timestamp="1605775841748">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="142" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605775841748" />
     <state width="721" height="221" key="GridCell.Tab.1.bottom" timestamp="1605682245294">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
