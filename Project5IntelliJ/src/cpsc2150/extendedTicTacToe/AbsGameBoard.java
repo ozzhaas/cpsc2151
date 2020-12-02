@@ -39,6 +39,7 @@ public abstract class AbsGameBoard implements cpsc2150.extendedTicTacToe.IGameBo
             else {
                 gameBoardStr = gameBoardStr + " " + i + " " + '|';
             }
+            //Create the columns
             for (int c = 0; c < strCol; c++) {
                 BoardPosition stringPos;
                 stringPos = new BoardPosition(i, c);

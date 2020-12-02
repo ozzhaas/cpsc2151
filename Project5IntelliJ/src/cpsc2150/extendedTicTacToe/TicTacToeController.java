@@ -35,7 +35,6 @@ public class TicTacToeController {
         this.curGame = model;
         this.screen = view;
         playerTotal = np; //number of players
-        // Some code is needed here.
     }
 
     /**
@@ -52,6 +51,7 @@ public class TicTacToeController {
             playerCount = 0;
             newGame();
         }
+        //Create the new BoardPosition object in order to place the player's marker on the board
         BoardPosition newPos = new BoardPosition(row, col);
         screen.setMessage("It's player " + playerArray[(playerCount + 1) % playerTotal] + "'s turn...");
         if (!curGame.checkSpace(newPos)) {
